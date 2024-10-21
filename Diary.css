@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box; /* Включает границы и внутренние отступы в ширину и высоту */
+}
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1ebe5; /* Soft background */
+    margin: 0; /* Reset default margin */
+}
+
+/* Header Styles */
+.head {
+    display: flex;
+    justify-content: center; /* Центрируем содержимое */
+    background: linear-gradient(180deg, #f1ebe5, #99a481);
+    font-family: "Cormorant Garamond", sans-serif;
+    padding: 25px; /* Отступы сверху и снизу, большее расстояние по краям */
+}
+body {
+    background: #f1ebe5;
+    padding: 0;
+    margin: 0;
+    font-family: "Cormorant Garamond", sans-serif;
+}
+
+.headContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Распределение кнопок по ширине */
+    width: 100%; /* Кнопки занимают всю ширину header */
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    gap: 50px; /* Расстояние между кнопками */
+    color: antiquewhite;
+}
+.headContainer button {
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+.headContainer button:hover{
+    font-size: 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 0 5px white,
+    0 0 10px white,
+    0 0 15px white;
+}
+
+/* Diary Container Styles */
+.diary {
+    width: 400px;
+    margin: 20px auto; /* Center diary section */
+    background-color: #ffffff; /* White background for the diary */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Diary Header */
+.diary-header {
+    text-align: center;
+    font-size: 28px; /* Slightly larger font size */
+    margin-bottom: 20px;
+    color: #4CAF50; /* Green header for eco-friendly theme */
+}
+
+/* Input Group Styles */
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333; /* Darker text for labels */
+}
+
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd; /* Slightly thicker border */
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s; /* Transition for border color */
+}
+
+input[type="number"]:focus,
+input[type="date"]:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+    outline: none; /* Remove outline */
+}
+
+/* Icons Section */
+.icons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.icons img {
+    width: 30px; /* Slightly larger icons */
+    height: 30px;
+    transition: transform 0.3s; /* Smooth scaling */
+}
+
+.icons img:hover {
+    transform: scale(1.1); /* Scale on hover */
+}
+
+/* Button Styles */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s; /* Transition for background color */
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

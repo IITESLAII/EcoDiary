@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-image: url("Eco Diary.png");
+    background-position-y: -80px;
+    font-family: "Cormorant Garamond", sans-serif;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: #efeeee;
+    position: absolute;
+    top: 50px;    /* Смещение сверху */
+    right: 250px; /* Смещение справа */
+    font-family: "Cormorant Garamond", serif; /* Применение шрифта к контейнеру */
+}
+
+.button-container {
+    font-family: "Cormorant Garamond", serif; /* Применение шрифта к кнопкам */
+    font-size: 15px;
+    width: 400px;
+    height: 40px;
+    border: 1px solid black;
+    margin: 15px;
+}
+
+#first-button {
+    margin-top: 50px;
+}
+
+#last-button {
+    margin-bottom: 10px;
+}
+
+/* Новый контейнер для маленьких кнопок */
+.small-buttons-container {
+    display: flex;
+    justify-content: center; /* Горизонтальное центрирование */
+    gap: 10px;               /* Расстояние между картинками */
+}
+
+/* Кнопки с иконками */
+.small-button {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.small-icon {
+    width: 30px;  /* Устанавливаем ширину картинки */
+    height: 30px; /* Устанавливаем высоту картинки */
+    object-fit: cover; /* Картинка будет вписана в кнопку пропорционально */
+    border-radius: 10px;
+}

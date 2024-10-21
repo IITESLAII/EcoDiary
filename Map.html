@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+    <link rel="stylesheet" href="style2.css">
+    <!-- Добавьте Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Стиль для контейнера карты */
+        #map {
+            height: 600px; /* Высота карты */
+            margin-top: 20px; /* Отступ сверху */
+        }
+        /* Стиль для текста под картой */
+        .info-text {
+            text-align: center; /* Центрируем текст */
+            margin-top: 10px; /* Отступ сверху */
+            font-size: 18px; /* Размер шрифта */
+            color: #333; /* Цвет текста */
+        }
+    </style>
+</head>
+
+<header class="head">
+    <div class="headContainer">
+        <a href="Diary.html">
+            <button>Diary</button>
+        </a>
+        <a href="Map.html">
+            <button class="onPage">Map</button>
+        </a>
+        <a href="Events.html">
+            <button> Events </button>
+        </a>
+        <a href="FAQ.html">
+            <button> FAQ </button>
+        </a>
+        <a href="About-Us.html">
+            <button> About Us </button>
+        </a>
+        <a href="login.html">
+            <button> Log in/Sign in </button>
+        </a>
+    </div>
+</header>
+
+<body>
+<div id="map"></div> <!-- Контейнер для карты -->
+<p class="info-text">You can mark places where you know there is waste sorting, just click!</p> <!-- Информативный текст -->
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> <!-- Подключите Leaflet JS -->
+<script>
+    // Инициализация карты с координатами Парижа
+    const map = L.map('map').setView([48.8566, 2.3522], 13); // Установите координаты Парижа
+
+    // Добавление слоя карты
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // Функция для добавления пина на карту
+    function addPin(e) {
+        const { lat, lng } = e.latlng; // Получите координаты клика
+        L.marker([lat, lng]).addTo(map) // Добавьте маркер
+            .bindPopup('Pinned here!') // Добавьте всплывающее окно
+            .openPopup(); // Откройте всплывающее окно
+    }
+
+    // Слушайте событие клика на карте
+    map.on('click', addPin);
+</script>
+</body>
+</html>

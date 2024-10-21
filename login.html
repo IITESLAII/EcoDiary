@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Log in/Sign in</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+    body {
+      background-color: #f1ebe5; /* Цвет фона */
+      font-family: "Cormorant Garamond", serif; /* Шрифт */
+      display: flex; /* Гибкое размещение элементов */
+      flex-direction: column; /* Вертикальная компоновка */
+      align-items: center; /* Центрируем по горизонтали */
+      justify-content: center; /* Центрируем по вертикали */
+      height: 100vh; /* Высота экрана */
+      margin: 0; /* Убираем отступы */
+    }
+
+    .Events {
+      background: #dedfd6;
+    }
+
+    .FAQ {
+      background: #908b78;
+    }
+
+    header {
+      display: flex;
+      justify-content: center; /* Центрируем содержимое */
+      background: linear-gradient(180deg, #f1ebe5, #99a481);
+      padding: 20px; /* Уменьшенные отступы сверху и снизу */
+      width: 100%; /* Занимаем всю ширину */
+      position: absolute; /* Позволяем позиционировать header */
+      top: 0; /* Позиционируем вверху */
+      left: 0; /* Позиционируем влево */
+      z-index: 1000; /* Устанавливаем z-index, чтобы он был над другими элементами */
+    }
+
+    .headContainer {
+      display: flex;
+      flex-direction: row; /* Горизонтальная компоновка кнопок */
+      justify-content: space-between; /* Распределение кнопок по ширине */
+      width: 100%; /* Кнопки занимают всю ширину header */
+      max-width: 1200px; /* Максимальная ширина контейнера */
+      gap: 50px; /* Расстояние между кнопками */
+      color: antiquewhite; /* Цвет текста кнопок */
+    }
+
+    .headContainer button {
+      font-size: 20px; /* Размер шрифта кнопок */
+      border: none; /* Убираем рамку */
+      background-color: transparent; /* Прозрачный фон */
+      color: white; /* Цвет текста кнопок */
+      cursor: pointer; /* Курсор при наведении */
+    }
+
+    .onPage {
+      text-shadow: 0 0 5px white,
+      0 0 10px white,
+      0 0 15px white; /* Эффект тени для активной кнопки */
+    }
+
+    .headContainer > button:first-child {
+      margin-left: 50px; /* Отступ слева у первой кнопки */
+    }
+
+    .headContainer > button:last-child {
+      margin-right: 50px; /* Отступ справа у последней кнопки */
+    }
+
+    .headContainer button:hover {
+      font-size: 20px; /* Увеличение шрифта при наведении */
+      background-color: transparent;
+      color: white;
+      text-shadow: 0 0 5px white,
+      0 0 10px white,
+      0 0 15px white; /* Эффект тени при наведении */
+    }
+
+    .login-container {
+      background-color: white; /* Цвет фона формы */
+      border-radius: 10px; /* Скругление углов */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Тень для формы */
+      padding: 40px; /* Отступы внутри формы */
+      width: 300px; /* Ширина формы */
+      margin-top: 100px; /* Отступ сверху, чтобы форма была ниже заголовка */
+    }
+
+    h1 {
+      text-align: center; /* Выравнивание заголовка */
+      color: #333; /* Цвет текста заголовка */
+      margin-bottom: 20px; /* Отступ снизу заголовка */
+    }
+
+    .form-group {
+      margin-bottom: 20px; /* Отступ между группами полей */
+    }
+
+    label {
+      display: block; /* Отображение в блок */
+      margin-bottom: 5px; /* Отступ снизу от метки */
+      color: #666; /* Цвет метки */
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%; /* Полная ширина полей */
+      padding: 10px; /* Отступы внутри полей */
+      border: 1px solid #ddd; /* Рамка полей */
+      border-radius: 5px; /* Скругление углов полей */
+      font-size: 16px; /* Размер шрифта в полях */
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #99a481; /* Цвет рамки при фокусе */
+      outline: none; /* Убираем обводку при фокусе */
+    }
+
+    button {
+      width: 100%; /* Полная ширина кнопки */
+      padding: 10px; /* Отступы внутри кнопки */
+      border: none; /* Убираем рамку */
+      background-color: #99a481; /* Цвет кнопки */
+      color: white; /* Цвет текста кнопки */
+      font-size: 16px; /* Размер шрифта кнопки */
+      border-radius: 5px; /* Скругление углов кнопки */
+      cursor: pointer; /* Курсор при наведении */
+      transition: background-color 0.3s; /* Плавный переход цвета фона */
+    }
+
+    button:hover {
+      background-color: #88a374; /* Цвет кнопки при наведении */
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="headContainer">
+    <a href="Diary.html">
+      <button>Diary</button>
+    </a>
+    <a href="Map.html">
+      <button>Map</button>
+    </a>
+    <a href="Events.html">
+      <button>Events</button>
+    </a>
+    <a href="FAQ.html">
+      <button>FAQ</button>
+    </a>
+    <a href="About-Us.html">
+      <button>About Us</button>
+    </a>
+    <a href="login.html">
+      <button class="onPage">Log in/Sign in</button>
+    </a>
+  </div>
+</header>
+
+<div class="login-container">
+  <h1>Log in / Sign in</h1>
+  <form class="login-form">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
