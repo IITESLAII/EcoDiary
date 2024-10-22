@@ -1,65 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 
-.cormorant-garamond-light {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 300;
-    font-style: normal;
-}
-
-.cormorant-garamond-regular {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.cormorant-garamond-medium {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.cormorant-garamond-semibold {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.cormorant-garamond-bold {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.cormorant-garamond-light-italic {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.cormorant-garamond-regular-italic {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 400;
-    font-style: italic;
-}
-
-.cormorant-garamond-medium-italic {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 500;
-    font-style: italic;
-}
-
-.cormorant-garamond-semibold-italic {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 600;
-    font-style: italic;
-}
-
-.cormorant-garamond-bold-italic {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 700;
-    font-style: italic;
-}
-
 body {
     background: #f1ebe5;
     padding: 0;
@@ -67,21 +7,27 @@ body {
     font-family: "Cormorant Garamond", serif; /* Применение шрифта к body */
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0; /* Сброс отступов для заголовков и параграфов */
+}
+
+h1 {
+    font-size: 2rem; /* Увеличенный размер шрифта для заголовков */
+}
+
 .Events {
     background: #dedfd6;
 }
+
 .FAQ {
     background: #908b78;
-
 }
-
 
 .head {
     display: flex;
     justify-content: center; /* Центрируем содержимое */
     background: linear-gradient(180deg, #f1ebe5, #99a481);
-    font-family: "Cormorant Garamond", serif; /* Применение шрифта к header */
-    padding: 25px; /* Отступы сверху и снизу, большее расстояние по краям */
+    padding: 2rem; /* Отступы сверху и снизу */
 }
 
 .headContainer {
@@ -90,12 +36,12 @@ body {
     justify-content: space-between; /* Распределение кнопок по ширине */
     width: 100%; /* Кнопки занимают всю ширину header */
     max-width: 1200px; /* Максимальная ширина контейнера */
-    gap: 50px; /* Расстояние между кнопками */
+    gap: 2rem; /* Расстояние между кнопками */
     color: antiquewhite;
 }
 
 .headContainer button {
-    font-size: 20px;
+    font-size: 1.2rem; /* Используем относительный размер */
     border: none;
     background-color: transparent;
     color: white;
@@ -109,20 +55,46 @@ body {
 }
 
 .headContainer > button:first-child {
-    margin-left: 50px; /* Отступ слева у первой кнопки */
+    margin-left: 2rem; /* Отступ слева у первой кнопки */
 }
 
 .headContainer > button:last-child {
-    margin-right: 50px; /* Отступ справа у последней кнопки */
+    margin-right: 2rem; /* Отступ справа у последней кнопки */
 }
 
 .headContainer button:hover {
-    font-size: 20px;
-    border: none;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
     text-shadow: 0 0 5px white,
     0 0 10px white,
     0 0 15px white;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .head {
+        flex-direction: column; /* Вертикальная компоновка на меньших экранах */
+    }
+
+    .headContainer {
+        flex-direction: column; /* Кнопки располагаются вертикально */
+        align-items: center; /* Центрирование кнопок */
+        gap: 1rem; /* Меньшее расстояние между кнопками */
+    }
+
+    .headContainer button {
+        font-size: 1rem; /* Уменьшение размера шрифта на маленьких экранах */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Уменьшение размера заголовков */
+    }
+}
+
+@media (max-width: 480px) {
+    .head {
+        padding: 1rem; /* Меньшие отступы на очень маленьких экранах */
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Еще меньше заголовки */
+    }
 }
