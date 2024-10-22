@@ -2,10 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us</title>
-  <link rel="stylesheet" href="style2.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+    /* Основные стили шрифтов */
+    body {
+      background: #f1ebe5;
+      padding: 0;
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    /* Стиль для заголовка */
+    .head {
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(180deg, #f1ebe5, #99a481);
+      padding: 25px;
+    }
+
+    .headContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      gap: 50px;
+      color: antiquewhite;
+    }
+
+    .headContainer button {
+      font-size: 20px;
+      border: none;
+      background-color: transparent;
+      color: white;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .headContainer button:hover {
+      text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+    }
+
+    /* Стиль для кнопок "About Us" и "Join Us" */
+    .custom-button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #99a481; /* Цвет кнопки */
+      color: white; /* Цвет текста */
+      border: none;
+      border-radius: 5px; /* Скругление углов */
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Анимация */
+      text-shadow: 0 0 5px white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    }
+
+    .custom-button:hover {
+      background-color: #7b8b6f; /* Темный цвет при наведении */
+      transform: translateY(-2px); /* Легкое поднятие кнопки */
+    }
+
+    /* Стили изображений и контейнеров */
+    img {
+      border-radius: 50px;
+      display: block;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 1260px;
+      height: auto;
+    }
+
+    /* Анимация появления изображений */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .button-container {
+      text-align: center;
+      margin: 20px;
+    }
+
+    /* Скрытие элементов */
+    .hidden {
+      display: none;
+    }
+
+    /* Убедитесь, что кнопка Join Us видима */
+    .join-us-visible {
+      opacity: 0; /* Начальное состояние для анимации */
+      transform: translateY(30px); /* Смещение для эффекта появления */
+      transition: opacity 1s ease-out, transform 1s ease-out; /* Анимация */
+    }
+
+    .join-us-visible.show {
+      opacity: 1; /* Делаем кнопку видимой */
+      transform: translateY(0); /* Сброс смещения */
+    }
+  </style>
 </head>
 
+<body>
 <header class="head">
   <div class="headContainer">
     <a href="Diary.html">
@@ -15,23 +121,69 @@
       <button>Map</button>
     </a>
     <a href="Events.html">
-      <button> Events </button>
+      <button>Events</button>
     </a>
     <a href="FAQ.html">
-      <button> FAQ </button>
+      <button>FAQ</button>
     </a>
     <a href="About-Us.html">
-      <button  class="onPage"> About Us </button>
+      <button class="onPage">About Us</button>
     </a>
     <a href="login.html">
-      <button> Log in/Sign in </button>
+      <button>Log in/Sign in</button>
     </a>
-
   </div>
 </header>
 
-<body>
-<img src="7.png" alt="" width=1260>
-<img src="8.png" alt="" width=1260>
+<!-- Контейнер для кнопок "About Us" и "Join Us" -->
+<div class="button-container">
+  <button class="custom-button" id="showAboutUs">About Us</button>
+</div>
+
+<!-- Картинки с анимацией -->
+<img src="7.png" alt="Image 7" class="fade-in hidden" id="image1">
+<div class="button-container hidden" id="joinUsContainer">
+  <button class="custom-button join-us-visible" id="showJoinUs">Join Us</button>
+</div>
+<img src="8.png" alt="Image 8" class="fade-in hidden" id="image2">
+
+<script>
+  const showAboutUsButton = document.getElementById('showAboutUs');
+  const image1 = document.getElementById('image1');
+  const joinUsContainer = document.getElementById('joinUsContainer');
+  const showJoinUsButton = document.getElementById('showJoinUs');
+  const image2 = document.getElementById('image2');
+
+  showAboutUsButton.addEventListener('click', () => {
+    // Показываем первую картинку с анимацией
+    image1.classList.remove('hidden');
+    setTimeout(() => {
+      image1.classList.add('show');
+    }, 10); // короткая задержка для активации CSS анимации
+
+    // Прокрутка вниз к кнопке "Join Us" после появления изображения
+    setTimeout(() => {
+      joinUsContainer.classList.remove('hidden');
+
+      // Делаем кнопку Join Us видимой с анимацией
+      const joinUsButton = joinUsContainer.querySelector('.join-us-visible');
+      joinUsButton.classList.add('show');
+
+      // Прокрутка вниз к кнопке Join Us
+      joinUsContainer.scrollIntoView({ behavior: 'smooth' });
+    }, 1000); // Задержка для появления изображения
+  });
+
+  showJoinUsButton.addEventListener('click', () => {
+    // Показываем вторую картинку с анимацией
+    image2.classList.remove('hidden');
+    setTimeout(() => {
+      image2.classList.add('show');
+    }, 10); // короткая задержка для активации CSS анимации
+
+    // Прокрутка вниз к изображению
+    image2.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
