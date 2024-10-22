@@ -13,9 +13,9 @@ body {
     display: flex;
     justify-content: center; /* Центрируем содержимое */
     background: linear-gradient(180deg, #f1ebe5, #99a481);
-    font-family: "Cormorant Garamond", sans-serif;
-    padding: 25px; /* Отступы сверху и снизу, большее расстояние по краям */
+    padding: 2rem; /* Отступы сверху и снизу */
 }
+
 body {
     background: #f1ebe5;
     padding: 0;

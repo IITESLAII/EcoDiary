@@ -4,48 +4,56 @@ body {
     background-image: url("Eco Diary.png");
     background-position-y: -80px;
     font-family: "Cormorant Garamond", sans-serif;
+    margin: 0; /* Убираем отступы у body */
 }
-
-
 
 .container {
     display: flex;
     flex-direction: column;
     background-color: #efeeee;
     position: absolute;
-    top: 50px;    /* Смещение сверху */
-    right: 250px; /* Смещение справа */
-    font-family: "Cormorant Garamond", serif; /* Применение шрифта к контейнеру */
+    top: 3rem;  /* Смещение сверху */
+    right: 15%; /* Смещение справа, теперь относительное */
+    width: 90%; /* Ширина контейнера относительно родителя */
+    max-width: 450px; /* Максимальная ширина контейнера */
+    padding: 15px; /* Внутренние отступы по 5 пикселей */
+    box-sizing: border-box; /* Учитываем отступы в ширину */
 }
 
 .button-container {
+
+    cursor: pointer;
     font-family: "Cormorant Garamond", serif; /* Применение шрифта к кнопкам */
-    font-size: 15px;
-    width: 400px;
-    height: 40px;
+    font-size: 1rem; /* Относительный размер */
+    height: 2.5rem; /* Высота кнопки */
     border: 1px solid black;
-    margin: 15px;
+    margin: 1rem 0; /* Отступы между кнопками по вертикали */
+    width: 100%; /* Ширина кнопки на 100% */
+    box-sizing: border-box; /* Учитываем границы в ширину */
+}
+.button-container:hover {
+    background-color: #d5d5d5; /* Измените цвет фона при наведении */
 }
 
 #first-button {
-    margin-top: 50px;
+    margin-top: 3rem; /* Отступ сверху у первой кнопки */
 }
 
 #last-button {
-    margin-bottom: 10px;
+    margin-bottom: 0.5rem; /* Отступ снизу у последней кнопки */
 }
 
 /* Новый контейнер для маленьких кнопок */
 .small-buttons-container {
     display: flex;
     justify-content: center; /* Горизонтальное центрирование */
-    gap: 10px;               /* Расстояние между картинками */
+    gap: 0.5rem; /* Расстояние между кнопками */
 }
 
 /* Кнопки с иконками */
 .small-button {
-    width: 50px;
-    height: 50px;
+    width: 3rem; /* Ширина кнопки с иконкой */
+    height: 3rem; /* Высота кнопки с иконкой */
     padding: 0;
     border: none;
     background-color: transparent;
@@ -53,8 +61,48 @@ body {
 }
 
 .small-icon {
-    width: 30px;  /* Устанавливаем ширину картинки */
-    height: 30px; /* Устанавливаем высоту картинки */
+    width: 2rem; /* Ширина картинки иконки */
+    height: 2rem; /* Высота картинки иконки */
     object-fit: cover; /* Картинка будет вписана в кнопку пропорционально */
     border-radius: 10px;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .container {
+        right: 5%; /* Уменьшение отступа справа */
+        width: 90%; /* Ширина контейнера на меньших экранах */
+    }
+
+    .button-container {
+        font-size: 0.9rem; /* Уменьшение размера шрифта на меньших экранах */
+    }
+
+    #first-button {
+        margin-top: 2rem; /* Уменьшение отступа */
+    }
+
+    #last-button {
+        margin-bottom: 0.3rem; /* Уменьшение отступа */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-position-y: -60px; /* Корректировка фона на очень маленьких экранах */
+    }
+
+    .button-container {
+        height: 2rem; /* Уменьшение высоты кнопки */
+    }
+
+    .small-button {
+        width: 2.5rem; /* Уменьшение ширины кнопки с иконкой */
+        height: 2.5rem; /* Уменьшение высоты кнопки с иконкой */
+    }
+
+    .small-icon {
+        width: 1.5rem; /* Уменьшение ширины картинки иконки */
+        height: 1.5rem; /* Уменьшение высоты картинки иконки */
+    }
 }
